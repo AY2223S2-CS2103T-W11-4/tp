@@ -35,7 +35,7 @@ class JsonAdaptedPerson {
     private LocalDateTime time = null;
 
     /**
-     * Constructs a {@code JsonAdaptedPerson} with the given person details.
+     * Constructs a {@code JsonAdaptedPerson}  with the given person details.
      */
 
     @JsonCreator
