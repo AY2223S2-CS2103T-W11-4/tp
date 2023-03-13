@@ -47,6 +47,7 @@ public class DeleteCommandTest {
         assertCommandFailure(deleteCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
     }
 
+
 =======
     //    @Test
     //    public void execute_validIndexFilteredList_success() {
