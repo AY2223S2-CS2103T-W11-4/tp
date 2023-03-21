@@ -26,6 +26,7 @@ public class Person {
 
     private MedicalCondition medicalCondition;
     private Age age;
+    private NRIC nric;
     /**
      * Every field must be present and not null.
      */
@@ -38,6 +39,9 @@ public class Person {
         this.age = new Age("");
         this.tags.addAll(tags);
         this.medicalCondition = new MedicalCondition("");
+        if (nric == null) {
+            nric = new NRIC("");
+        }
     }
 
     /**
@@ -53,12 +57,15 @@ public class Person {
         this.age = age;
         this.tags.addAll(tags);
         this.medicalCondition = medicalCondition;
+        if (nric == null) {
+            nric = new NRIC("");
+        }
     }
 
     /**
      * Every filed must be present and not null
      */
-    public Person(Name name, Phone phone, Email email, Address address, Age age, Set<Tag> tags) {
+    public Person(Name name, Phone phone, Email email, Address address, Age age, Set<Tag> tags, NRIC nric) {
         requireAllNonNull(name, phone, email, address, tags);
         this.name = name;
         this.phone = phone;
@@ -67,12 +74,16 @@ public class Person {
         this.age = age;
         this.tags.addAll(tags);
         this.medicalCondition = new MedicalCondition("");
+        this.nric = nric;
+        if (nric == null) {
+            nric = new NRIC("");
+        }
     }
 
     /**
      * Every filed must be present and not null
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags,
+    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, NRIC nric,
                   MedicalCondition medicalCondition) {
         requireAllNonNull(name, phone, email, address, tags);
         this.name = name;
@@ -82,7 +93,28 @@ public class Person {
         this.age = new Age("");
         this.tags.addAll(tags);
         this.medicalCondition = medicalCondition;
+        this.nric = nric;
+        if (nric == null) {
+            nric = new NRIC("");
+        }
     }
+
+    public Person(Name name, Phone phone, Email email, Address address, Age age, Set<Tag> tags, NRIC nric,
+                  MedicalCondition medicalCondition) {
+        requireAllNonNull(name, phone, email, address, tags);
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+        this.age = age;
+        this.tags.addAll(tags);
+        this.medicalCondition = medicalCondition;
+        this.nric = nric;
+        if (nric == null) {
+            nric = new NRIC("");
+        }
+    }
+
 
     public Name getName() {
         return name;
@@ -102,6 +134,10 @@ public class Person {
 
     public Age getAge() {
         return age;
+    }
+
+    public NRIC getNric() {
+        return nric;
     }
 
     public MedicalCondition getMedicalCondition() {

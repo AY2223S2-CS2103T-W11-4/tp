@@ -14,6 +14,7 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Age;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.MedicalCondition;
+import seedu.address.model.person.NRIC;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -32,6 +33,7 @@ class JsonAdaptedPerson {
     private final String address;
     private String medicalCondition;
     private String age;
+    private String nric;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     /**
@@ -42,6 +44,7 @@ class JsonAdaptedPerson {
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
                              @JsonProperty("email") String email, @JsonProperty("address") String address,
                              @JsonProperty("tagged") List<JsonAdaptedTag> tagged, @JsonProperty("age") String age,
+                             @JsonProperty("NRIC") String nric,
                              @JsonProperty("MedicalCondition") String medicalCondition) {
         this.name = name;
         this.phone = phone;
@@ -59,6 +62,10 @@ class JsonAdaptedPerson {
         }
         if (medicalCondition != null) {
             this.medicalCondition = medicalCondition;
+        }
+
+        if (nric != null) {
+            this.nric = nric;
         }
     }
     public JsonAdaptedPerson(String name, String phone, String email, String address, List<JsonAdaptedTag> tagged) {
@@ -84,6 +91,10 @@ class JsonAdaptedPerson {
         }
         if (source.getMedicalCondition().getValue() != null) {
             medicalCondition = source.getMedicalCondition().getValue();
+        }
+
+        if (source.getNric() != null) {
+            nric = source.getNric().getNumber();
         }
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
@@ -136,15 +147,16 @@ class JsonAdaptedPerson {
         final Set<Tag> modelTags = new HashSet<>(personTags);
         final Age modelAge = new Age(age);
         final MedicalCondition modelMedical = new MedicalCondition(medicalCondition);
-
+        final NRIC modelNric = new NRIC(nric);
         if (age != null && medicalCondition != null) {
-            return new Person(modelName, modelPhone, modelEmail, modelAddress, modelAge, modelTags, modelMedical);
+            return new Person(modelName, modelPhone, modelEmail, modelAddress, modelAge, modelTags,
+                    modelNric, modelMedical);
         }
         if (age != null && medicalCondition == null) {
-            return new Person(modelName, modelPhone, modelEmail, modelAddress, modelAge, modelTags);
+            return new Person(modelName, modelPhone, modelEmail, modelAddress, modelAge, modelTags, modelNric);
         }
         if (age == null && medicalCondition != null) {
-            return new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags, modelMedical);
+            return new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags, modelNric, modelMedical);
         }
 
         return new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags);

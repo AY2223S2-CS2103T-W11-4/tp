@@ -14,6 +14,7 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Age;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.MedicalCondition;
+import seedu.address.model.person.NRIC;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
@@ -170,5 +171,11 @@ public class ParserUtil {
             throw new ParseException(Age.MESSAGE_CONSTRAINTS);
         }
         return new Age(age);
+    }
+
+    public static NRIC parseNric(String number) throws ParseException {
+        requireNonNull(number);
+        String trimmed = number.trim();
+        return new NRIC(number);
     }
 }

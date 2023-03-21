@@ -45,6 +45,8 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label age;
     @FXML
+    private Label nric;
+    @FXML
     private FlowPane tags;
 
     /**
@@ -60,6 +62,12 @@ public class PersonCard extends UiPart<Region> {
         } else {
             String s = person.getAge().toString();
             age.setText(s);
+        }
+        if (person.getNric() == null) {
+            nric.setText("");
+        } else {
+            String s = person.getNric().toString();
+            nric.setText(s);
         }
         phone.setText(person.getPhone().value);
         address.setText(person.getAddress().value);
