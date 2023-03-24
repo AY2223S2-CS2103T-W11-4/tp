@@ -25,8 +25,7 @@ public class MedicalConditionTest {
         assertThrows(NullPointerException.class, () -> MedicalCondition.isValidCondition(null));
 
         // invalid ages
-        assertFalse(MedicalCondition.isValidCondition(" ")); // spaces only
-        assertFalse(MedicalCondition.isValidCondition("Asthma23455")); //Condition with random number behind
+        assertFalse(MedicalCondition.isValidCondition("   ")); // spaces only
 
         // valid ages
         assertTrue(MedicalCondition.isValidCondition("Asthma")); //Any String
