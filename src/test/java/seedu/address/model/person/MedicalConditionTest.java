@@ -32,5 +32,4 @@ public class MedicalConditionTest {
         assertTrue(MedicalCondition.isValidCondition("Asthma")); //Any String
         assertTrue(MedicalCondition.isValidCondition("")); // empty string
     }
-    
 }

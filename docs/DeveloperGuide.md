@@ -287,30 +287,30 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | User    | Record a person's email/address                                                    | Efficiently manage the communication and consultation process with patients                                                    |
 | `* * *`  | User    | Give patients zero or more tags                                                    | Easily classify different groups of patients by their illness, medication, and other information to serve their specific needs |
 | `* * *`  | User    | Add a certain medical condition and add the relevant patients in the same category | Organize patients based on their medical conditions                                                                            |
-| `* * *`  | User    | Add new types of medications and assign them to patients                           | Keep track of patients' medications and prescriptions                                                                          | 
+| `* * *`  | User    | Add new types of medications and assign them to patients                           | Keep track of patients' medications and prescriptions                                                                          |
 | `* * *`  | User    | List all current contacts                                                          | View general information, update list, and add filters/classifications                                                         |
-| `* * *`  | User    | Rank patients by schedule, name, and medical conditions                            | Manage consultation time and content efficiently                                                                               | 
-| `* * *`  | User    | Search for a medication and get the number of patients taking it                   | Determine how much medication to order for the clinic                                                                          | 
-| `* * *`  | User    | Edit patient information (phone number, name, location, medical condition)         | Update patient records                                                                                                         | 
-| `* * *`  | User    | Edit a patient contact                                                             | Modify patient contact information                                                                                             | 
-| `* * *`  | User    | Schedule appointments                                                              | Book and manage appointments to reduce workload                                                                                | 
-| `* * *`  | User    | Update appointment timing                                                          | Modify appointment times                                                                                                       | 
-| `* * *`  | User    | Mark appointments as done                                                          | Indicate when appointments are completed                                                                                       | 
-| `* * *`  | User    | Edit available medication amount                                                   | Maintain inventory and stock levels                                                                                            | 
-| `* * *`  | User    | Search for patients by name                                                        | Locate patient records by name                                                                                                 | 
-| `* * *`  | User    | Search for patients by phone number                                                | Locate patient records by phone number                                                                                         | 
-| `* * *`  | User    | Search for patients by location                                                    | Locate patients by location                                                                                                    | 
-| `* * *`  | User    | Search for patients by medical condition                                           | Locate patients by medical condition                                                                                           | 
-| `* * *`  | User    | Search for appointments by date                                                    | View appointments on a specific date                                                                                           | 
-| `* * *`  | User    | Access help function                                                               | Get information on using the software                                                                                          | 
-| `* * *`  | User    | Access patient health information                                                  | View patient medical history                                                                                                   | 
-| `* * *`  | User    | Access patient prescriptions                                                       | View patient medication history                                                                                                | 
-| `*`      | User    | Check available medication stock                                                   | Determine when to order more medication                                                                                        | 
-| `*`      | User    | Clear all contacts                                                                 | Delete all patient records                                                                                                     | 
-| `*`      | User    | Clear contacts by tags                                                             | Delete patient records based on tags                                                                                           | 
-| `*`      | User    | Clear contacts by location                                                         | Delete patient records based on location                                                                                       | 
-| `*`      | User    | Delete medication                                                                  | Remove a medication from the system                                                                                            | 
-| `*`      | User    | Delete appointment                                                                 | Remove an appointment from the system                                                                                          | 
+| `* * *`  | User    | Rank patients by schedule, name, and medical conditions                            | Manage consultation time and content efficiently                                                                               |
+| `* * *`  | User    | Search for a medication and get the number of patients taking it                   | Determine how much medication to order for the clinic                                                                          |
+| `* * *`  | User    | Edit patient information (phone number, name, location, medical condition)         | Update patient records                                                                                                         |
+| `* * *`  | User    | Edit a patient contact                                                             | Modify patient contact information                                                                                             |
+| `* * *`  | User    | Schedule appointments                                                              | Book and manage appointments to reduce workload                                                                                |
+| `* * *`  | User    | Update appointment timing                                                          | Modify appointment times                                                                                                       |
+| `* * *`  | User    | Mark appointments as done                                                          | Indicate when appointments are completed                                                                                       |
+| `* * *`  | User    | Edit available medication amount                                                   | Maintain inventory and stock levels                                                                                            |
+| `* * *`  | User    | Search for patients by name                                                        | Locate patient records by name                                                                                                 |
+| `* * *`  | User    | Search for patients by phone number                                                | Locate patient records by phone number                                                                                         |
+| `* * *`  | User    | Search for patients by location                                                    | Locate patients by location                                                                                                    |
+| `* * *`  | User    | Search for patients by medical condition                                           | Locate patients by medical condition                                                                                           |
+| `* * *`  | User    | Search for appointments by date                                                    | View appointments on a specific date                                                                                           |
+| `* * *`  | User    | Access help function                                                               | Get information on using the software                                                                                          |
+| `* * *`  | User    | Access patient health information                                                  | View patient medical history                                                                                                   |
+| `* * *`  | User    | Access patient prescriptions                                                       | View patient medication history                                                                                                |
+| `*`      | User    | Check available medication stock                                                   | Determine when to order more medication                                                                                        |
+| `*`      | User    | Clear all contacts                                                                 | Delete all patient records                                                                                                     |
+| `*`      | User    | Clear contacts by tags                                                             | Delete patient records based on tags                                                                                           |
+| `*`      | User    | Clear contacts by location                                                         | Delete patient records based on location                                                                                       |
+| `*`      | User    | Delete medication                                                                  | Remove a medication from the system                                                                                            |
+| `*`      | User    | Delete appointment                                                                 | Remove an appointment from the system                                                                                          |
 *{More to be added}*
 
 ### Use cases
@@ -351,17 +351,16 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 2. MediMate ask for type of details.
 3. User chose the type and enter the new details.
 4. MediMate record the details.
-   
+
    Use case ends.
 
 **Extensions**
 
-* 1a. User enter wrong input format. 
+* 1a. User enter wrong input format.
   * 1a1. Medimate give correct format and ask user to input again.
   * 1a2. User enters the input with correct format.
-    
+
     Use Case ends.
-  
 * 1b. Patient does not exist.
     * 1b1. Medimate reminds user to check for patient name.
     * 1b2. User enters the input with correct format
@@ -389,7 +388,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 1a. User enter wrong input format.
     * 1a1. Medimate give correct format and ask user to input again.
     * 1a2. User enters the input with correct format.
-      
+
       Use Case ends.
 
 
