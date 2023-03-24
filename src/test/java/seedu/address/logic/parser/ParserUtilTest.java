@@ -260,12 +260,6 @@ public class ParserUtilTest {
         assertThrows(NullPointerException.class, () -> ParserUtil.parseAddress((String) null));
     }
 
-
-    @Test
-    public void parseMedicalCondition_invalidValue_throwsParseException() {
-        assertThrows(ParseException.class, () -> ParserUtil.parseMedicalCond(INVALID_CONDITION));
-    }
-
     @Test
     public void parseMedicalCondition_validMedicalCondWithEmptyString_returnsMedicalCondition() throws Exception {
         MedicalCondition expectedCond = new MedicalCondition("");

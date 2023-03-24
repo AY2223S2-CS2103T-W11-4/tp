@@ -25,9 +25,9 @@ public class MedicalCondition {
      */
     public static boolean isValidCondition(String cond) {
         if (cond instanceof String) {
-            requireNonNull(cond);
             return true;
         }
+        requireNonNull(cond);
         return false;
     }
     @Override
