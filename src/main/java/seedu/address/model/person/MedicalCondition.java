@@ -24,10 +24,10 @@ public class MedicalCondition {
      * @return a boolean type, true if is a String obj and non-null, false otherwise
      */
     public static boolean isValidCondition(String cond) {
-        if (cond instanceof String) {
+        if (cond == "") {
+            requireNonNull(cond);
             return true;
         }
-        requireNonNull(cond);
         return false;
     }
     @Override
