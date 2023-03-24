@@ -20,6 +20,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Age;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.MedicalCondition;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
@@ -30,6 +31,7 @@ public class ParserUtilTest {
     private static final String INVALID_ADDRESS = " ";
     private static final String INVALID_AGE = "invalid age";
     private static final String INVALID_TIME = "invalid time";
+    private static final String INVALID_CONDITION = "invalid medical condition";
     private static final String INVALID_EMAIL = "example.com";
     private static final String INVALID_TAG = "#friend";
 
@@ -37,6 +39,7 @@ public class ParserUtilTest {
     private static final String VALID_PHONE = "123456";
     private static final String VALID_ADDRESS = "123 Main Street #0505";
     private static final String VALID_AGE = "15";
+    private static final String VALID_MEDICALCONDITION = "Asthma";
     private static final String VALID_TIME = "2021-05-15 1530";
     private static final String VALID_EMAIL = "rachel@example.com";
     private static final String VALID_TAG_1 = "friend";
@@ -250,5 +253,28 @@ public class ParserUtilTest {
         Set<Tag> expectedTagSet = new HashSet<Tag>(Arrays.asList(new Tag(VALID_TAG_1), new Tag(VALID_TAG_2)));
 
         assertEquals(expectedTagSet, actualTagSet);
+    }
+
+    @Test
+    public void parseMedicalCondition_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseAddress((String) null));
+    }
+
+
+    @Test
+    public void parseMedicalCondition_invalidValue_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseMedicalCond(INVALID_CONDITION));
+    }
+
+    @Test
+    public void parseMedicalCondition_validMedicalCondWithEmptyString_returnsMedicalCondition() throws Exception {
+        MedicalCondition expectedCond = new MedicalCondition("");
+        assertEquals(expectedCond, ParserUtil.parseMedicalCond(""));
+    }
+
+    @Test
+    public void parseMedicalCondition_validValueWithoutWhitespace_returnsMedicalCondition() throws Exception {
+        MedicalCondition expectedCond = new MedicalCondition(VALID_MEDICALCONDITION);
+        assertEquals(expectedCond, ParserUtil.parseMedicalCond(VALID_MEDICALCONDITION));
     }
 }

@@ -8,6 +8,7 @@ import java.util.Set;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Age;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.MedicalCondition;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -25,6 +26,7 @@ public class PersonBuilder {
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     public static final String DEFAULT_TIME = "2023-03-12 0000";
     public static final String DEFAULT_AGE = "15";
+    public static final String DEFAULT_CONDITION = "Asthma";
 
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
     private Name name;
@@ -32,6 +34,7 @@ public class PersonBuilder {
     private Email email;
     private Address address;
     private Age age;
+    private MedicalCondition condition;
     private Set<Tag> tags;
     private LocalDateTime time;
 
@@ -45,6 +48,7 @@ public class PersonBuilder {
         address = new Address(DEFAULT_ADDRESS);
         time = LocalDateTime.parse(DEFAULT_TIME.trim(), formatter);
         age = new Age(DEFAULT_AGE);
+        condition = new MedicalCondition(DEFAULT_CONDITION);
         tags = new HashSet<>();
     }
 
@@ -57,6 +61,7 @@ public class PersonBuilder {
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
         age = personToCopy.getAge();
+        condition = personToCopy.getMedicalCondition();
         tags = new HashSet<>(personToCopy.getTags());
         time = personToCopy.getTime();
     }
@@ -84,7 +89,10 @@ public class PersonBuilder {
         this.address = new Address(address);
         return this;
     }
-
+    public PersonBuilder withMedicalCondition(String condition) {
+        this.condition = new MedicalCondition(condition);
+        return this;
+    }
     /**
      * Sets the {@code Age} of the {@code Person} that we are building.
      */
