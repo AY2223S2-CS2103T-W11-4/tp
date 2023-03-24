@@ -89,6 +89,10 @@ public class PersonBuilder {
         this.address = new Address(address);
         return this;
     }
+
+    /**
+     * Sets the {@code MedicalCondition} of the {@code Person} that we are building.
+     */
     public PersonBuilder withMedicalCondition(String condition) {
         this.condition = new MedicalCondition(condition);
         return this;
