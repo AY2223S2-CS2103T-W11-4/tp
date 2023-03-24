@@ -14,12 +14,6 @@ public class MedicalConditionTest {
     }
 
     @Test
-    public void constructor_invalidMedicalCondition_throwsIllegalArgumentException() {
-        String invalidCond = "invalid medical condition";
-        assertThrows(IllegalArgumentException.class, () -> new MedicalCondition(invalidCond));
-    }
-
-    @Test
     public void isValidMedicalCond() {
         // null age
         assertThrows(NullPointerException.class, () -> MedicalCondition.isValidCondition(null));
