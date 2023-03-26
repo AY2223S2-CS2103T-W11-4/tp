@@ -8,6 +8,8 @@ import java.util.List;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
+import org.apache.pdfbox.pdmodel.encryption.AccessPermission;
+import org.apache.pdfbox.pdmodel.encryption.StandardProtectionPolicy;
 import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
 import org.apache.pdfbox.pdmodel.interactive.form.PDField;
 import org.apache.pdfbox.pdmodel.interactive.form.PDTextField;
@@ -104,5 +106,28 @@ public class FileGenerator {
             e.printStackTrace();
         }
 
+    }
+
+    /**
+     * Encrypt pdf.
+     *
+     * @param pdfDocument   the pdf document
+     * @param ownerPassword the owner password
+     * @param userPassword  the user password
+     */
+    public void encryptPdf(PDDocument pdfDocument, String ownerPassword, String userPassword) {
+        try {
+            int keyLength = 128; // Key length in bits (can be 40, 128, or 256 for PDFBox 2.x)
+
+            AccessPermission accessPermission = new AccessPermission();
+            StandardProtectionPolicy protectionPolicy = new StandardProtectionPolicy(ownerPassword,
+                    userPassword, accessPermission);
+            protectionPolicy.setEncryptionKeyLength(keyLength);
+            protectionPolicy.setPermissions(accessPermission);
+
+            pdfDocument.protect(protectionPolicy);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -18,6 +18,7 @@ import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.encryption.InvalidPasswordException;
 import org.apache.pdfbox.rendering.ImageType;
 import org.apache.pdfbox.rendering.PDFRenderer;
 
@@ -61,6 +62,27 @@ public class PdfReader implements FileReader<PDDocument> {
             e.printStackTrace();
             return new PDDocument();
             //return empty pdf to avoid NPE
+        }
+    }
+
+    /**
+     * Load encrypted file pd document.
+     *
+     * @param path         the path
+     * @param userPassword the user password
+     * @return the pd document
+     */
+    public PDDocument loadEncryptedFile(Path path, String userPassword) {
+        try {
+            PDDocument document = PDDocument.load(path.toFile(), userPassword);
+            return document;
+        } catch (InvalidPasswordException e) {
+            System.err.println("Invalid password for encrypted PDF file.");
+            e.printStackTrace();
+            return new PDDocument();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new PDDocument();
         }
     }
 
